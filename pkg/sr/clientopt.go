@@ -99,7 +99,7 @@ func DefaultParams(ps ...Param) ClientOpt {
 	}}
 }
 
-// WithLogger sets the logger to use.
-func WithLogger(logger Logger) ClientOpt {
-	return clientOpt{func(cl *Client) { cl.logger = logger }}
+// WithLogFn sets the logger function to use.
+func WithLogFn(logFn func(int8, string, ...any)) ClientOpt {
+	return clientOpt{func(cl *Client) { cl.logFn = logFn }}
 }
